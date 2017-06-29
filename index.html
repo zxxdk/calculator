@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计算器功能</title>
+
+</head>
+
+<body>
+    <input type="text" id="x" >
+     <!--<input type="text" id="char">-->
+    <select id="char">
+     	<option value="加">加</option>
+     	<option value="减">减</option>
+     	<option value="除">除</option>
+     	<option value="乘">乘</option>
+    </select>
+    <input type="text" id="y">
+    结果是：
+    <span id="result"></span>
+    <input type="button" value="计算" onclick="calculator()"><!--进入函数-->
+    <script type="text/javascript">
+    //计算机主函数
+		function calculator(){
+			var x=document.getElementById("x").value
+			x=x.trim();//将输入两边的空格去掉
+			var y=document.getElementById("y").value
+			y=y.trim();//将输入两边的空格去掉
+			if(document.getElementById("x").value=="" ||isNaN(document.getElementById("x").value))
+				alert("x输入不合法");
+			if(document.getElementById("y").value=="" || isNaN(document.getElementById("x").value))
+				alert("y输入不合法");
+			var x = parseFloat(document.getElementById("x").value);//获取数据
+			var char = document.getElementById("char").value;//获取数据
+			var y = parseFloat(document.getElementById("y").value);//获取数据
+			var s;
+			if(char==="乘")
+				{
+					s=x*y;
+				  //return s;
+			   }
+			else if(char==="加")
+				{
+					s=x+y;
+				    //return s;
+			   }
+			else if(char==="减")
+				{
+					s=x-y;
+				   //return s;
+			    }
+			else if(char==="除")
+				{
+					if(y == 0)
+						alert("NAN");
+					else
+					s=x/y;
+				    //return s;
+			   }
+			else
+				{
+					s=0;
+				    //return s;
+				}
+			s =parseFloat(s.toFixed(5)) //设置数据精度，小数点后五位
+			document.getElementById("result").innerText=s;//将s的值赋给result
+
+		}
+    </script>
+</body>
+</html>
